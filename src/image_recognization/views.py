@@ -60,7 +60,7 @@ def draw(request):
             number = logistic.check_digit_logistic(image_data)
         return render(request, 'digit/draw.html',{"number":number[0], 'type': type})
     else:
-        type = request.POST.get('type')
+        type = request.GET.get('type')
         return render(request, 'digit/draw.html',{"number":"", 'type': type})
 
 def cifar_10(request):

@@ -15,7 +15,15 @@
 		<!-- Post Content Column -->
 		<div class="col-lg-8">
 			<!-- Title -->
-			<h1 class="mt-4">Description</h1>
+			<h1 class="mt-4">Description(
+                                    {% if type == "cnn" %}
+                                      Convolution Network
+                                    {% elif type == "mlp" %}
+                                      Multilayer Network
+                                    {% else %}
+                                      Logistic Regression
+                                    {% endif %}
+         )</h1>
 			<hr>
 			<!-- Date/Time -->
 			{% block desc %}{% endblock desc %}

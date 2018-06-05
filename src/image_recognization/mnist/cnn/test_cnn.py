@@ -59,15 +59,9 @@ def check_digit_cnn(img_name):
 
                 x = tf.placeholder("float", [None, 784]) # mnist data image of shape 28*28=784
                 keep_prob = tf.placeholder(tf.float32) # dropout probability
-
                 output = inference(x, keep_prob)
-
-                # global_step = tf.Variable(0, name='global_step', trainable=False)
-
                 saver = tf.train.Saver()
-
                 sess = tf.Session()
-
                 base_dir = os.path.dirname(os.path.abspath(__file__))
                 checkpoint_path = os.path.join(os.path.dirname(base_dir), "cnn/conv_mnist_logs/")
                 saver.restore(sess, tf.train.latest_checkpoint(checkpoint_path))
