@@ -39,19 +39,19 @@ def digit(request):
     else:
         img=Digit()
         type = request.GET['type']
-        print(type,"this")
         context = {"number": "", "form": img, 'type': type}
     return render(request,'digit/digit.html',context)
 
 # Added Function
 def draw(request):
     if request.method == "POST":
+        type = request.POST.get('type')
+        print(type,"this")
         image_data = request.POST.get('canvas')
         image_data = re.sub("^data:image/png;base64,", "", image_data)
         image_data = base64.b64decode(image_data)
         image_data = BytesIO(image_data)
         #im = Image.open(image_data)
-        type = request.POST.get('type')
         if type=='cnn':
             number = cnn.check_digit_cnn(image_data)
         elif type=='mlp':

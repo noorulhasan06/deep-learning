@@ -1,5 +1,6 @@
 import tensorflow as tf
 import os, shutil
+from ..im_conv_mnist import conv_mnist
 
 n_hidden_1 = 256
 n_hidden_2 = 256

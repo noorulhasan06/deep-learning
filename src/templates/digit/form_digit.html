@@ -1,6 +1,6 @@
 <form action="digit.html" method="post" enctype="multipart/form-data" class="was-validated"><!--changed-->
   {% csrf_token %}
-  <input type='hidden' value = '{{type}}' />
+  <input type='hidden' name ='type' value = '{{type}}' />
   <div class="form-group">
     <div class="input-group mb-3">
     <div class="custom-file was-validated" style="margin-top:20px">

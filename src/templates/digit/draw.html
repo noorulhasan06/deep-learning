@@ -10,9 +10,10 @@
 				<div class="card-body">
 						<div id="canvasDiv" style="text-align:center"></div>
 				</div>
-			</div> 
+			</div>
   		<form method="post" action="draw.html"  onsubmit="prepareImg()"  enctype="multipart/form-data">
         {% csrf_token %}
+        <input type="hidden" name='type' value="{{type}}"/>
   			<input type="hidden" id="image" name="canvas"  />
   			<!--input type="button" id="save" value="save"/-->
         <div class="text-center">
