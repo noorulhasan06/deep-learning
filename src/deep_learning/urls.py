@@ -26,8 +26,8 @@ urlpatterns = [
     url(r'^$', home),
     url(r'^digit.html$',digit, name='digit'),
     url(r'^draw.html$',draw, name = 'draw'),
-    url(r'^cifar_10.html$',cifar_10, name = 'cifar_10'),
-    url(r'^cifar_100.html$',cifar_100, name = 'cifar_100'),
+    url(r'^cifar10.html$',cifar10, name = 'cifar10'),
+    url(r'^cifar10_bn.html$',cifar10_bn, name = 'cifar10_bn'),
 ]
 
 if settings.DEBUG:

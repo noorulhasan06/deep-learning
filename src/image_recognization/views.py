@@ -11,6 +11,7 @@ from .mnist.logistic_regression import logistic_regression as logistic
 from .mnist.multilayer import multilayer as mlp
 import re, base64
 from io import BytesIO
+from .cifar10.im_conv_cifar10 import im_cov_cifar10
 
 # Create your views here.
 
@@ -63,25 +64,29 @@ def draw(request):
         type = request.GET.get('type')
         return render(request, 'digit/draw.html',{"number":"", 'type': type})
 
-def cifar_10(request):
+def cifar10(request):
+    type = 'cifar10'
     if request.method == "POST":
         img = Digit(request.POST, request.FILES)
         if img.is_valid():
+            image = request.FILES['pic']
+            im_cov_cifar10(image)
             #number = tmp.check_digit(request.FILES['pic'])
             #context = {"number": number[0], "form": img}
             return render(request,'image/cifar_10.html',context)
     else:
         img=Digit()
         context = {"image":None , "form": img}
-    return render(request,'image/cifar_10.html',context)
+    return render(request,'image/cifar10.html',context)
 
-def cifar_100(request):
+def cifar10_bn(request):
+    type = 'cifar10_bn'
     if request.method == "POST":
         img = Digit(request.POST, request.FILES)
         if img.is_valid():
             #number = tmp.check_digit(request.FILES['pic'])
             #context = {"number": number[0], "form": img}
-            return render(request,'image/cifar_100.html',context)
+            return render(request,'image/cifar10_bn.html',context)
     else:
         img=Digit()
         context = {"image":None , "form": img}
